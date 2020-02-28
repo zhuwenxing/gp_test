@@ -18,7 +18,6 @@ p_max = Variable("p_max", 1)
 # p_max = 1
 constraints = []
 
-items = [] # 目标函数中的f_i(p)/g_i(p)的近似函数，总共有user_num个，目标函数为这些函数的连乘。
 p_new = np.random.rand(user_num)  #对功率随机初始化
 F = []
 G = []
@@ -41,6 +40,7 @@ for i in range(user_num):
     G.append(g)
 count = 0
 while True:
+    items = [] # 目标函数中的f_i(p)/g_i(p)的近似函数，总共有user_num个，目标函数为这些函数的连乘。
     count += 1 # 统计使用了多少次GP
     for i in range(user_num):
         f = F[i]
